@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <script src="dist/js/bootstrap.js"></script>
+    <style>
+        #mynavbar{
+            background-color: rgb(253, 220, 157);
+        }
+        #mycolumn{
+            background-color: rgb(105, 66, 66);
+        }
+        #myamenities{
+            background-color: rgb(105, 66, 66);
+        }
+        #funactivities{
+            background-color: rgb(216, 213, 213);
+            padding: 15px;
+        }
+        #footer{
+            background-color:rgb(253, 220, 157) ;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+     <!-- Section one starts here -->
+         <section class="row">
+            <div class="col-lg-12">
+                <!-- below tag element will hold all the contents of the navbar -->
+                 <nav class=" navbar navbar-expand-lg navbar-light" id="mynavbar">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="images/logo (2).png" alt="logo" width="300px" height="100px">
+                    </a>
+
+                    <!-- Below is the toggler/hamburger button to either collapse/expand contents depending on the different screen sizes -->
+                     <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarcontents">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+
+                     <div id="navbarcontents" class="navbar-collapse collapse">
+                        <div class="navbar-nav">
+                            <a href="index.html" class="nav-link active">Home</a>
+                            <a href="#" class="nav-link">Photos</a>
+                            <a href="#" class="nav-link">Experiences</a>
+                            <a href="#" class="nav-link">Rooms</a>
+                            <a href="#" class="nav-link">Reviews</a>
+
+                        </div>
+                     </div>
+
+                 </nav>
+            </div>
+         </section> 
+        <!-- Section one ends here -->
+
+         <!-- Section two starts here -->
+
+         <!-- Carousel-It is used to move/slide different contents on the screen from one side to the other. A carousel has three main sections i.e 1.inner/wrapper(Holds the contents to be displayed) 2.controls-(we have the left control and the right control) 3.indicators(indicate which content is currently visible on the screen) -->
+
+         <section class="row">
+            <div class="col-lg-6 row g-0">
+                <!-- Below is the division that will hold all the contents of the carousel -->
+                 <div class="carousel slide" data-bs-ride="carousel" id="mycarousel">
+                    <!-- Below is the div that will hold all the images -->
+                     <div class="carousel-inner">
+                        <!-- Below is the div with the first image -->
+                         <div class="carousel-item active">
+                                <img src="images/villa2.avif" alt="villa" class="d-block w-100" height="500px">
+                         </div>
+                         <!-- Below is the div with the second image -->
+                          <div class="carousel-item">
+                                <img src="images/villa.avif" alt="villa two" class="d-block w-100" height="500px">
+                          </div>
+                          <!-- Below is the div with the third image -->
+                           <div class="carousel-item">
+                                <img src="images/view.jpg" alt="view" class="d-block w-100" height="500px">
+                           </div>
+                           <!-- Below is the div with the fourth image -->
+                            <div class="carousel-item">
+                                <img src="images/pool.jpg" alt="pool" class="d-block w-100" height="500px">
+                            </div>
+                     </div>
+
+                     <!-- Below are the controls -->
+                      <a href="#mycarousel" data-bs-slide="prev" class="carousel-control-prev"><span class="carousel-control-prev-icon bg-danger"></span></a>
+
+                      <a href="#mycarousel" data-bs-slide="next" class="carousel-control-next"><span class="carousel-control-next-icon bg-danger"></span></a>
+                 </div>
+            </div>
+
+            <div class="col-lg-6 text-center text-light" id="mycolumn"> <br> <br> <br> <br>
+                <h2 class="text-uppercase">Welcome to Treasured Homes Getaways</h2> <br>
+
+                <h4> Elegant, fully furnished homes designed for comfort. Curated with refined comfort, privacy and unforgettable stays in prime locations. Perfect for relaxation, business travel and special escapes. </h4>
+            </div>
+         </section> <br> <hr> <br>
+        <!-- Section two ends here -->
+
+        <!-- Section three starts here -->
+
+        <h1 class="text-center">Gallery</h1> <br>
+          <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="d-flex">
+                         <img src="images/livingroom.jpg" class="d-block w-25" alt="livingroom">
+                         <img src="images/bedroom1.jpg" class="d-block w-25" alt="bedroom one">
+                         <img src="images/bedroom2.jpg" class="d-block w-25" alt="bedroom two">
+                         <img src="images/bedroom3.jpg" class="d-block w-25" alt="bedroom three">
+                     </div>
+                 </div>
+          <div class="carousel-item">
+             <div class="d-flex">
+                <img src="images/dining.jpg" class="d-block w-25" alt="dining">
+                <img src="images/kitchen1.jpg" class="d-block w-25" alt="kitchen one">
+                <img src="images/kitchen2.jpg" class="d-block w-25" alt="kitchen two">
+                <img src="images/kitchen3.jpg" class="d-block w-25" alt="kitchen three">
+             </div>
+         </div>
+    
+              </div>
+
+     <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+
+                 <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </button>
+          </div> <br> <hr> <br>
+
+
+        <!-- Section three ends here -->
+
+        <!-- Section four starts here -->
+          <div id="myamenities">
+            <h1 class="text-center text-light">Amenities</h1> <br>
+            <section class="row">
+                <div class="col-lg-6 text-light">
+                    <img src="images/wifi.png" alt="wifi"> <b>Free wifi</b> <br>
+                    <img src="images/pets.png" alt="pets"> <b>Pets Allowed</b> <br>
+                    <img src="images/poollogo.png" alt="pool logo"> <b>Outdoor Pool</b> <br>
+                    <img src="images/beach.png" alt="beach"> <b>Beach</b> <br>
+                </div>
+
+                <div class="col-lg-6 text-light">
+                    <img src="images/bar.png" alt="bar"> <b>Bar</b> <br>
+                    <img src="images/roomservice.png" alt="room service"> <b>Room Service</b> <br>
+                    <img src="images/airportshuttle.png" alt="airport shuttle"> <b>Airport Shuttle </b><br>
+                </div>
+            </section>       
+          </div> <br> <hr> <br>
+
+        <!-- Section four ends here -->
+
+        <!-- Section five starts here -->
+          <div class="text-center text-dark" id="funactivities">
+            <h1>Fun Activities</h1>
+          </div> <br>
+          <section class="row">
+
+             <div class="col-lg-6">
+            <img src="images/fun.jpg" alt="fun activities" width="98%" height="300px">
+             </div>
+
+          <div class="col-lg-6">
+            <h5>Are you having the desire for a coast offering palm-fringed, white sandy beaches, then this is just the place for you, a perfect holiday home, with a personal touch: </h5>
+            <ol style="list-style-type: square;">
+                <li><b>Sky diving</b></li>
+                <li><b>Jet skiing</b></li>
+                <li><b>Scuba diving</b></li>
+                <li><b>Deeps sea sport fishing</b></li>
+                <li><b>Glass bottom boat rides</b></li>
+                <li><b>Game drives and safaris to the famous Kenyan National Parks</b></li>
+                <li><b>Golf</b></li>
+                <li><b>Kite surfing</b></li>
+            </ol>
+          </div>
+          </section> <br> <hr> <br>
+                  
+        <!-- Section five ends here -->
+
+        <!-- Section six starts here -->
+
+         <section class="row" id="footer">
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">About Us</h3>
+                <p class="text-dark">Treasured Homes, Luxury Getaways offers elegant, fully furnished homes designed for comfort, privacy and unforgettable stays. We deliver premium spaces in prime locations, perfect for relaxations, business travel and special escapes-where every stay feels truly treasured.</p>
+
+                <p>This is a exclusive luxury residences crafted for elegance, privacy and exceptional comfort, where every is a refined escape. This is where sophisticated design meets serene living. Our hand picked luxury homes has seamless hospitality, creating memorable stays for discerning travelers seeking elegance and tranquility.</p>
+
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">Contact Us</h3>
+
+                <form> 
+                     <input type="email" placeholder="Enter your email" class="form-control"> <br>
+
+                    <textarea placeholder="Leave a comment" cols="55" rows="8" class="form-control"></textarea> <br> 
+
+                    <input type="submit" value="Send Message" class="btn btn-outline-danger">
+            </form>
+              
+            </div>
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">Stay Connected</h3> <br>
+                <a href="https://facebook.com"><img src="images/fb.png" alt="facebook"></a> 
+                <a href="https://instagram.com"><img src="images/in.png" alt="instagram"></a>  
+                <a href="https://x.com"><img src="images/x.png" alt="X"></a>  
+                <a href="https://airbnb.com"><img src="images/airbnb.png" alt="airbnb" width="80px" height="60px"></a> <br> <br> <br>
+                <img src="images/phone.png" alt="phone"> <b>+254 717 575 102</b> <br>
+                <img src="images/mail.png" alt="email"> <b>treasuredhomes@gmail.com</b> <br>
+                <img src="images/location.png" alt="location"> <b>Diani, 80400, Kenya</b>
+
+            </div>
+         </section>
+        <!-- Section six ends here -->
+
+        <!-- Section seven starts here  -->
+            <footer class="text-center text-white bg-dark p-2"><b>Developed by Jeremiah.© 2026. All rights reserved</b></footer>
+
+        <!-- Section seven ends here -->      
+    </body>
+</html>
+
+
+</body>
+</html>
