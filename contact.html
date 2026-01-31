@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact Us Page</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Poppins&display=swap">
+    <script src="dist/js/bootstrap.js"></script>
+    <style>
+         #mynavbar{
+            background-color: rgb(253, 220, 157);
+        }
+        #heading{
+            margin: 40px;
+        }
+        .contact{
+            font-family: 'Lora', serif;
+        }
+        #contactus{
+            margin: 40px;
+            background-color: rgb(253, 220, 157);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        .underline-input{
+            border: none;
+            border-bottom: 2px solid;
+            outline: none;
+            background: transparent;
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .underline-input::placeholder{
+            color: black;
+            font-family: 'Poppins',sans-serif;
+            font-size: 20px;
+        }
+        #reach-us{
+            background-color: rgb(245, 232, 198);
+            font-family: 'Lora', serif;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section one starts here -->
+         <section class="row">
+            <div class="col-lg-12">
+                <!-- below tag element will hold all the contents of the navbar -->
+                 <nav class=" navbar navbar-expand-lg navbar-light" id="mynavbar">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="images/logo (2).png" alt="logo" width="300px" height="100px">
+                    </a>
+
+                    <!-- Below is the toggler/hamburger button to either collapse/expand contents depending on the different screen sizes -->
+                     <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarcontents">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+
+                     <div id="navbarcontents" class="navbar-collapse collapse">
+                        <div class="navbar-nav">
+                            <a href="index.html" class="nav-link active">Home</a>
+                            <a href="property.html" class="nav-link">Property</a>
+                            <a href="experiences.html" class="nav-link">Experiences</a>
+                            <a href="contact.html" class="nav-link">Contact Us</a>
+
+                        </div>
+                     </div>
+
+                 </nav>
+            </div>
+         </section> 
+        <!-- Section one ends here -->
+
+         <!-- Section two starts here -->
+            <section class="row">
+                <div class="col-lg-12">
+                    <img src="images/villa2.avif" alt="villa two" width="100%" height="500px">
+                </div>
+            </section> <br> <hr> <br>
+
+        <!-- Section two ends here -->
+
+        <!-- Section three starts here -->
+
+            <h1 class="contact" id="heading">We'd Love to Hear From You!</h1> <br> 
+
+            <section class="row" id="contactus">
+    
+                <div class="col-lg-6">
+                    <form>
+                        <input type="text" placeholder="Your Name" class="underline-input"> <br> <br>
+
+                        <input type="email" placeholder="Email" class="underline-input"> <br> <br>
+
+                        <input type="number" placeholder="Your Phone no" class="underline-input"> <br> <br>
+
+                        <input type="text" placeholder="Subject" class="underline-input"> <br> <br>
+
+                        <textarea placeholder="Message" cols="55" rows="8" class="underline-input"></textarea> <br> <br>
+
+                        <input type="submit" value="Send Message" class="btn btn-outline-danger"> 
+                    </form>
+
+                </div>
+
+                <div class="col-lg-6" id="reach-us"> <br>
+                    <h1>Reach Us!</h1> <br>
+                    <img src="images/location1.png" alt="location"> <b class="text-dark">Diani, Kenya</b> <br> <br>
+                    <img src="images/call1.png" alt="call"> <b class="text-dark">+254 717 575 102</b> <br> <br>
+                    <img src="images/mail1.png" alt="mail"> <b class="text-dark">treasuredhomes@gmail.com</b>
+
+
+                </div>
+            </section>
+        <!-- Section three ends here -->
+
+
+</body>
+</html>

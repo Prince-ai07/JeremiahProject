@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Poppins&display=swap">
     <script src="dist/js/bootstrap.js"></script>
     <style>
         #mynavbar{
@@ -12,9 +13,14 @@
         }
         #mycolumn{
             background-color: rgb(105, 66, 66);
+            font-family: 'Lora', serif;
+        }
+        #gallery{
+            font-family: 'Lora', serif;
         }
         #myamenities{
             background-color: rgb(105, 66, 66);
+            font-family: 'Poppins', sans-serif;
         }
         #funactivities{
             background-color: rgb(216, 213, 213);
@@ -45,8 +51,8 @@
                         <div class="navbar-nav">
                             <a href="index.html" class="nav-link active">Home</a>
                             <a href="property.html" class="nav-link">Property</a>
-                            <a href="#" class="nav-link">Experiences</a>
-                            <a href="#" class="nav-link">Reviews</a>
+                            <a href="experiences.html" class="nav-link">Experiences</a>
+                            <a href="contact.html" class="nav-link">Contact Us</a>
 
                         </div>
                      </div>
@@ -101,7 +107,7 @@
 
         <!-- Section three starts here -->
 
-        <h1 class="text-center">Gallery</h1> <br>
+        <h1 class="text-center" id="gallery">Gallery</h1> <br>
           <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                   <div class="carousel-item active">
