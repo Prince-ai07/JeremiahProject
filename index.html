@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
     <script src="dist/js/bootstrap.js"></script>
     <style>
+       
         #mynavbar{
             background-color: rgb(253, 220, 157);
             height: 150px;
@@ -61,7 +62,8 @@
         }
         #myamenities{  
             font-family: 'Lora', serif;
-            height: 600px;
+            height: auto;
+            overflow: hidden;
         }
         #heading-one{
             font-size: 60px;
@@ -104,14 +106,17 @@
       display: none; /* hidden until first click */
     }
     .image-video{
+        width: 100%;
         height: 70vh;
         overflow: hidden;
         position: relative;
     }
     .slideshow img{
         position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 500px;
+        height: 100%;
         object-fit: cover;
         opacity: 0;
         animation: fade 15s infinite;
@@ -140,6 +145,88 @@
         40%{opacity: 0;}
         100%{opacity: 0;}
     }
+     @media (max-width: 991px) {
+    /* Navbar links stack nicely */
+    #mynavbar {
+        height: auto !important; /* let it expand naturally */
+        padding: 10px 0; /* optional for spacing */
+    }
+    .navbar-collapse{
+        background-color:  rgb(253, 220, 157);
+        padding: 1rem;
+    }
+    
+    #navbarcontents {
+        flex-direction: column !important;
+    }
+    
+    #navbarcontents .navbar-nav {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #navbarcontents .d-flex {
+        justify-content: center !important;
+    }
+
+    .navbar-headings {
+        font-size: 16px;
+    }
+
+    .reserve-btn {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px auto;
+    }
+}
+@media (max-width: 768px) {
+    .image-video {
+        max-height: 50vh;/* let it adjust naturally */
+    }
+
+    .slideshow img {
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack gallery images vertically instead of 4 in a row */
+    .carousel-item .d-flex img {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+
+    /* Carousel inner images resize automatically */
+    .carousel-inner img {
+        height: auto !important;
+    }
+}
+@media (max-width: 768px) {
+    #heading-one, #heading-two, #welcome, #quote {
+        font-size: clamp(24px, 5vw, 60px); /* min 24px, max 60px */
+        text-align: center !important;
+        margin-bottom: 20px;
+    }
+
+    #angelo {
+       font-size: clamp(14px, 3vw, 30px);
+    }
+    #quote {
+        font-size: clamp(20px, 6vw, 50px);
+    }
+    
+}
+@media (max-width: 992px) { /* tablet and below */
+    #myamenities .row {
+        flex-direction: column; /* stack columns vertically */
+    }
+
+    #column-one, #column-two {
+        padding: 20px; /* reduce padding for smaller screens */
+    }
+}
+
+
   
     </style>
 </head>
@@ -184,7 +271,7 @@
 
                         <!-- Reserve button -->
                         <div class="d-flex">
-                            <a href="reservation.html" target="_blank" class="btn reserve-btn">Reserve Now</a>
+                            <a href="reservation.html" class="btn reserve-btn">Reserve Now</a>
                         </div>
                     </div>
                 </div>
@@ -447,6 +534,7 @@
     </body>
 </html>
 
+<script src="dist/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>

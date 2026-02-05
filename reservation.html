@@ -189,6 +189,61 @@
             background-color:rgb(253, 220, 157) ;
             padding: 20px;
         }
+        input, textarea {
+    width: 100%; /* full width of column */
+    max-width: 100%; /* prevent overflow */
+    box-sizing: border-box; /* include padding in width */
+    }
+    textarea {
+    width: 100%;
+    max-width: 100%;
+    }
+
+     @media (max-width: 991px) {
+    /* Navbar links stack nicely */
+    #mynavbar {
+        height: auto !important; /* let it expand naturally */
+        padding: 10px 0; /* optional for spacing */
+    }
+    .navbar-collapse{
+        background-color:  rgb(253, 220, 157);
+        padding: 1rem;
+    }
+    
+    #navbarcontents {
+        flex-direction: column !important;
+    }
+    
+    #navbarcontents .navbar-nav {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #navbarcontents .d-flex {
+        justify-content: center !important;
+    }
+
+    .navbar-headings {
+        font-size: 16px;
+    }
+
+    .reserve-btn {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 767px) {
+    #mydivision {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+}
+
+
 
     </style>
 
@@ -303,7 +358,6 @@
 
                     <p>Enjoy the luxurious amenities and breathtaking surroundings, including access to Diani Beach's white sandy beaches, vibrant marine life, and plethora of activities to explore</p>
 
-                    <a href="#booking" class="btn book-btn"></a>
                 </div>
             </section>
          <!-- Section three ends here -->
@@ -408,7 +462,7 @@
                     <section class="row">
                         <div class="col-lg-12">
                             <label>Special Requests</label> <br>
-                            <textarea cols="127" rows="9"></textarea>
+                            <textarea rows="9"></textarea>
                         </div>
                     </section>
                     
@@ -463,5 +517,9 @@
          </section>
 
             <!-- Section seven starts here -->
+            <footer class="text-center text-white bg-dark p-2"><b>Developed by Jeremiah.© 2026. All rights reserved</b></footer>
+            <!-- Section seven ends here -->
+             <script src="dist/js/bootstrap.bundle.js"></script>
+
 </body>
 </html>

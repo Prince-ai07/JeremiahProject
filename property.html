@@ -57,6 +57,39 @@
       z-index: 1000;
       display: none; /* hidden until first click */
     }
+      @media (max-width: 991px) {
+    /* Navbar links stack nicely */
+    #mynavbar {
+        height: auto !important; /* let it expand naturally */
+        padding: 10px 0; /* optional for spacing */
+    }
+    .navbar-collapse{
+        background-color:  rgb(253, 220, 157);
+        padding: 1rem;
+    }
+    #navbarcontents {
+        flex-direction: column !important;
+    }
+    
+    #navbarcontents .navbar-nav {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #navbarcontents .d-flex {
+        justify-content: center !important;
+    }
+
+    .navbar-headings {
+        font-size: 16px;
+    }
+
+    .reserve-btn {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px auto;
+    }
+}
 
     </style>
 </head>
@@ -137,7 +170,7 @@
 
                         <!-- Reserve button -->
                         <div class="d-flex">
-                            <a href="reservation.html" target="_blank" class="btn reserve-btn">Reserve Now</a>
+                            <a href="reservation.html"  class="btn reserve-btn">Reserve Now</a>
                         </div>
                     </div>
                 </div>
@@ -287,5 +320,7 @@
 
          <footer class="text-center text-white bg-dark p-2"><b>Developed by Jeremiah.© 2026. All rights reserved</b></footer>
          <!-- Section six ends here -->
+          <script src="dist/js/bootstrap.bundle.js"></script>
+
 </body>
 </html>
