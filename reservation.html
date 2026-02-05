@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Poppins&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <script src="dist/js/bootstrap.js"></script>
+    <script>
+  // Function to validate a single input field
+  function validateField(input) {
+    const errorMessage = input.nextElementSibling;
+    if (input.value.trim() === "") {
+      input.classList.add("error");
+      errorMessage.style.display = "block";
+      return false;
+    } else {
+      input.classList.remove("error");
+      errorMessage.style.display = "none";
+      return true;
+    }
+  }
+
+  // Clear error when user types
+  function clearError(input) {
+    const errorMessage = input.nextElementSibling;
+    if (input.value.trim() !== "") {
+      input.classList.remove("error");
+      errorMessage.style.display = "none";
+    }
+  }
+
+  // Attach blur and input events to all required inputs
+  document.querySelectorAll("input[required]").forEach(input => {
+    input.addEventListener("blur", () => validateField(input));
+    input.addEventListener("input", () => clearError(input));
+  });
+
+  // Wait until DOM is ready
+  document.addEventListener("DOMContentLoaded", function() {
+
+    // Get the button and form
+    const button = document.getElementById("makeReservationBtn");
+    const form = document.getElementById("bookingForm");
+
+    button.addEventListener("click", function(e) {
+      e.preventDefault(); // stop default submission
+
+      // Get all required inputs
+      const inputs = form.querySelectorAll("input[required]");
+      let firstInvalid = null;
+
+      // Validate all inputs
+      inputs.forEach(input => {
+        const errorMessage = input.nextElementSibling;
+
+        if (input.value.trim() === "") {
+          input.classList.add("error");
+          errorMessage.style.display = "block";
+
+          if (!firstInvalid) {
+            firstInvalid = input; // remember first empty field
+          }
+        } else {
+          input.classList.remove("error");
+          errorMessage.style.display = "none";
+        }
+      });
+
+      // Scroll to first invalid field
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstInvalid.focus();
+      } else {
+        // All fields valid → submit form or handle success
+        form.submit(); // remove/comment if you handle submission differently
+      }
+
+    });
+
+  });
+</script>
+
+    <style>
+         #mynavbar{
+            background-color: rgb(253, 220, 157);
+            height: 150px;
+        }
+        .navbar-headings{
+            font-family:'Lora', serif ;
+            font-size: 20px;
+        }
+         #sound-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: black;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1.4rem;
+        z-index: 1000;
+        display: none; /* hidden until first click */
+        }
+        #division-one{
+            background-color: black;
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        #myheading{
+            color: white;
+            font-family: 'Lora', serif;
+            font-size: 60px;
+        }
+        #myheading-two{
+            color: rgb(212, 69, 17);
+            font-family: 'Lora', serif;
+        }
+        #mycolumn{
+            padding-top: 60px;
+            padding-bottom: 60px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-family: 'Lora', serif;
+        }
+        .formgroup{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        label{
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .required{
+            color: red;
+        }
+        input{
+            padding: 20px;
+            font-size: 15px;
+            border: 1px solid;
+            outline: none;
+            width: 250px;
+        }
+        input.error{
+            border: 1px solid red;
+        }
+        .error-message{
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+        .the-headings{
+            text-align: center;
+            font-family: 'Lora', serif;
+        }
+        #mydivision{
+            background-color: black;
+            color: white;
+            font-family: 'Lora', serif;
+            padding-top: 50px;
+            padding-left: 80px;
+            padding-right: 25px;
+            padding-bottom: 40px;
+        }
+        .submit-btn{
+            background-color: black;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover{
+            background: orange;
+            color: black;
+            text-decoration: underline;
+        }
+        #footer{
+            background-color:rgb(253, 220, 157) ;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+     <audio id="bg-music" autoplay loop muted>
+        <source src="music/music.mp3" type="audio/mpeg">
+    </audio>
+
+            <!-- Audio -->
+            <audio id="bg-music" autoplay loop muted>
+            <source src="music/music.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Floating sound button -->
+            <button id="sound-btn">🔊</button>
+
+            <!-- Your Bootstrap JS -->
+            <script src="dist/js/bootstrap.js"></script>
+
+            <script>
+            const music = document.getElementById("bg-music");
+            const soundBtn = document.getElementById("sound-btn");
+
+            // First click anywhere: unmute music
+            document.addEventListener("click", () => {
+                music.muted = false;
+                music.volume = 0.3; // soft music
+                music.play().catch(err => console.log(err));
+
+                // Show floating button
+                soundBtn.style.display = "block";
+            }, { once: true });
+
+            // Toggle mute/unmute with button
+            soundBtn.addEventListener("click", () => {
+                if (music.muted) {
+                music.muted = false;
+                soundBtn.textContent = "🔊";
+                } else {
+                music.muted = true;
+                soundBtn.textContent = "🔇";
+                }
+                });
+                </script>
+        <!-- Section one starts here -->
+         <section class="row">
+            <div class="col-lg-12">
+                <!-- below tag element will hold all the contents of the navbar -->
+                 <nav class="navbar navbar-expand-lg navbar-light " id="mynavbar">
+                <div class="container-fluid">
+                    <!-- Brand logo -->
+                    <a href="index.html" class="navbar-brand">
+                        <img src="images/logo (2).png" alt="logo" style="height:200px; width:auto;">
+                    </a>
+
+                    <!-- Toggler -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcontents"
+                            aria-controls="navbarcontents" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="navbarcontents">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link  navbar-headings">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="property.html" class="nav-link navbar-headings">Property</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="experiences.html" class="nav-link  navbar-headings">Experiences</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link navbar-headings">Contact Us</a>
+                            </li>
+                        </ul>
+
+                        
+                    </div>
+                </div>
+            </nav>
+
+            </div>
+         </section> 
+         <!-- Section one ends here -->
+
+         <!-- Section two starts here -->
+         <section class="row">
+         <div class="col-lg-4 row g-0" id="division-one">
+            <h1 id="myheading">Make a Reservation</h1>
+                <h4 id="myheading-two">Treasured Homes</h4>
+         </div>
+         <div class="col-lg-8 row g-0" id="division-two">
+            <img src="images/pool.jpg" alt="pool" height="400px">
+         </div>
+         </section>
+
+
+         <!-- Section two ends here -->
+
+         <!-- Section three starts here -->
+            <section class="row">
+                <div class="col-lg-6 row g-0">
+                    <img src="images/villa.avif" alt="villa" height="400px" width="100%">
+                </div>
+                <div class="col-lg-6" id="mycolumn">
+                    <h3>Whether you are Looking for a Short Romantic Getaway or a Long Vacation, We Guarantee That You Will Have an Unforgettable Experience With Us</h3>
+
+                    <p>Are you planning a holiday on the Kenyan Coast?Look no further than Treasured Homes for an exceptional experience. Our luxurious villas are available for vacation rental at an affordable price.</p>
+
+                    <p>Enjoy the luxurious amenities and breathtaking surroundings, including access to Diani Beach's white sandy beaches, vibrant marine life, and plethora of activities to explore</p>
+
+                    <a href="#booking" class="btn book-btn"></a>
+                </div>
+            </section>
+         <!-- Section three ends here -->
+
+         <!-- Section four starts here -->
+            <div id="mydivision">
+                <h1 class="the-headings">Quick Reservation</h1>
+                <h3 class="the-headings">Use the form below to send us basic information and we wil get back to you instantly</h3>
+
+                <p>Fields marked with an * are required</p>
+
+                <form id="bookingForm" novalidate>
+
+                    <section class="row">
+                        <div class="col-lg-4">
+                            <!-- First Name -->
+                         <div class="form-group">
+                        <label for="firstName">First Name
+                            <span class="required">*</span>
+                        </label> <br>
+                        <input type="text" 
+                            id="firstName"
+                            name="firstName"
+                            required
+                            onblur="validateField(this)"
+                            oninput="clearError(this)"
+                            >
+                            <small class="error-message">
+                                This is a required field
+                            </small>
+                         </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- Last Name -->
+                        <div class="form-group">
+                            <label>Last Name 
+                                <span class="required">*</span>
+                            </label> <br>
+                            <input type="text" required
+                                onblur="validateField(this)"
+                                oninput="clearError(this)">
+                            <small class="error-message">This is a required field</small>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <!-- Email Address -->
+                        <div class="form-group">
+                            <label>Email Address
+                                 <span class="required">*</span>
+                                </label><br>
+                            <input type="email" required
+                                onblur="validateField(this)"
+                                oninput="clearError(this)">
+                            <small class="error-message">This is a required field</small>
+                        </div>
+                        </div>
+                    </section>
+
+                    <section class="row">
+                        <div class="col-lg-4">
+                            <!-- Phone Number -->
+                        <div class="form-group">
+                            <label>Phone Number 
+                                <span class="required">*</span>
+                            </label> <br>
+                            <input type="tel" required
+                                onblur="validateField(this)"
+                                oninput="clearError(this)">
+                            <small class="error-message">This is a required field</small>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                             <!-- Check-in Date -->
+                        <div class="form-group">
+                            <label>Check-in Date 
+                                <span class="required">*</span>
+                            </label> <br>
+                            <input type="date" required
+                                onblur="validateField(this)"
+                                oninput="clearError(this)">
+                            <small class="error-message">This is a required field</small>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                             <!-- Check-out Date -->
+                        <div class="form-group">
+                            <label>Check-out Date
+                                 <span class="required">*</span>
+                                </label> <br>
+                            <input type="date" required
+                                onblur="validateField(this)"
+                                oninput="clearError(this)">
+                            <small class="error-message">This is a required field</small>
+                        </div>
+                        </div>
+                    </section>    
+                    
+                    <section class="row">
+                        <div class="col-lg-12">
+                            <label>Special Requests</label> <br>
+                            <textarea cols="127" rows="9"></textarea>
+                        </div>
+                    </section>
+                    
+                    </div>
+
+                </form>
+            </div> <br> 
+         <!-- Section four ends here -->
+            <!-- Section five starts here -->
+
+         <!-- Submit button -->
+                    <button type="button" class="submit-btn" id="makeReservationBtn">Make Reservation</button> <br> <br>
+
+            <!-- Section five ends here -->
+
+            <!-- Section six starts here -->
+                <section class="row" id="footer">
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">About Us</h3>
+                <p class="text-dark">Treasured Homes, Luxury Getaways offers elegant, fully furnished homes designed for comfort, privacy and unforgettable stays. We deliver premium spaces in prime locations, perfect for relaxations, business travel and special escapes-where every stay feels truly treasured.</p>
+
+                <p>This is a exclusive luxury residences crafted for elegance, privacy and exceptional comfort, where every is a refined escape. This is where sophisticated design meets serene living. Our hand picked luxury homes has seamless hospitality, creating memorable stays for discerning travelers seeking elegance and tranquility.</p>
+
+                
+            </div>
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">Contact Us</h3>
+
+                <form> 
+                     <input type="email" placeholder="Enter your email" class="form-control"> <br>
+
+                    <textarea placeholder="Leave a comment" cols="55" rows="8" class="form-control"></textarea> <br> 
+
+                    <input type="submit" value="Send Message" class="btn btn-outline-danger">
+            </form>
+              
+            </div>
+
+            <div class="col-lg-4">
+                <h3 class="text-center text-dark">Stay Connected</h3> <br>
+                <a href="https://facebook.com"><img src="images/fb.png" alt="facebook"></a> 
+                <a href="https://instagram.com"><img src="images/in.png" alt="instagram"></a>  
+                <a href="https://x.com"><img src="images/x.png" alt="X"></a>  
+                <a href="https://airbnb.com"><img src="images/airbnb.png" alt="airbnb" width="80px" height="60px"></a> <br> <br> <br>
+                <img src="images/phone.png" alt="phone"> <b>+254 717 575 102</b> <br>
+                <img src="images/mail.png" alt="email"> <b>treasuredhomes@gmail.com</b> <br>
+                <img src="images/location.png" alt="location"> <b>Diani, 80400, Kenya</b>
+
+            </div>
+         </section>
+
+            <!-- Section seven starts here -->
+</body>
+</html>

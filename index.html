@@ -6,21 +6,80 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&family=Poppins&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
     <script src="dist/js/bootstrap.js"></script>
     <style>
         #mynavbar{
             background-color: rgb(253, 220, 157);
+            height: 150px;
+        }
+        .navbar-headings{
+            font-family:'Lora', serif ;
+            font-size: 20px;
+        }
+        #myquote{
+            width: 100%;
+            height: 400px;
+            background-color: black;
+            text-align: center;
+        }
+        #quote{
+            font-size: 50px ;
+            color: white;
+            font-family: 'Alex Brush', cursive;
+            margin: 20px 0;
+            letter-spacing: 5px;
+        }
+        #angelo{
+            font-family: 'Lota', serif;
+            color: white;
+            font-size: 30px;
+        }
+          .reserve-btn{
+        background-color: black;
+        color: white;
+        padding: 8px 22px;
+        border-radius: 10px;
+        height: 50px;
+        font-size: 20px;
+        font-family: 'Lora', serif;
+       }
+         .reserve-btn:hover{
+        background: white;
+        color: black;
+        text-decoration: underline;
         }
         #mycolumn{
             background-color: rgb(105, 66, 66);
             font-family: 'Lora', serif;
         }
+        #welcome{
+            font-size: 50px;
+        }
         #gallery{
             font-family: 'Lora', serif;
         }
-        #myamenities{
+        #myamenities{  
+            font-family: 'Lora', serif;
+            height: 600px;
+        }
+        #heading-one{
+            font-size: 60px;
+            font-family: 'Lora', serif;
+            text-align: center;
+        }
+        #column-one{
+            padding: 60px;
             background-color: rgb(105, 66, 66);
-            font-family: 'Poppins', sans-serif;
+        }
+        #column-two{
+            background-color: black;
+            color: white;
+            font-size: 25px;
+        }
+        #heading-two{
+            font-size: 60px;
+            text-align: center;
         }
         #funactivities{
             background-color: rgb(216, 213, 213);
@@ -30,39 +89,136 @@
             background-color:rgb(253, 220, 157) ;
             padding: 20px;
         }
+        #sound-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.4rem;
+      z-index: 1000;
+      display: none; /* hidden until first click */
+    }
+    .image-video{
+        height: 70vh;
+        overflow: hidden;
+        position: relative;
+    }
+    .slideshow img{
+        position: absolute;
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        opacity: 0;
+        animation: fade 15s infinite;
+    }
+    .slideshow img:nth-child(1)
+    {animation-delay: 0s;}
+    .slideshow img:nth-child(2)
+    {animation-delay: 5s;}
+    .slideshow img:nth-child(3)
+    {animation-delay: 5s;}
+    .slideshow img:nth-child(4)
+    {animation-delay: 10s;}
+    .slideshow img:nth-child(5)
+    {animation-delay: 10s;}
+    .slideshow img:nth-child(6)
+    {animation-delay: 15s;}
+    .slideshow img:nth-child(7)
+    {animation-delay: 15s;}
+    .slideshow img:nth-child(8)
+    {animation-delay: 20s;}
+
+    @keyframes fade {
+        0% {opacity: 0;}
+        10%{opacity: 1;}
+        30%{opacity: 1;}
+        40%{opacity: 0;}
+        100%{opacity: 0;}
+    }
+  
     </style>
 </head>
 <body>
+    <audio id="bg-music" autoplay loop muted>
+        <source src="music/music.mp3" type="audio/mpeg">
+    </audio>
+
      <!-- Section one starts here -->
          <section class="row">
             <div class="col-lg-12">
                 <!-- below tag element will hold all the contents of the navbar -->
-                 <nav class=" navbar navbar-expand-lg navbar-light" id="mynavbar">
+                 <nav class="navbar navbar-expand-lg navbar-light " id="mynavbar">
+                <div class="container-fluid">
+                    <!-- Brand logo -->
                     <a href="index.html" class="navbar-brand">
-                        <img src="images/logo (2).png" alt="logo" width="300px" height="100px">
+                        <img src="images/logo (2).png" alt="logo" style="height:200px; width:auto;">
                     </a>
 
-                    <!-- Below is the toggler/hamburger button to either collapse/expand contents depending on the different screen sizes -->
-                     <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarcontents">
+                    <!-- Toggler -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcontents"
+                            aria-controls="navbarcontents" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                     </button>
+                    </button>
 
-                     <div id="navbarcontents" class="navbar-collapse collapse">
-                        <div class="navbar-nav">
-                            <a href="index.html" class="nav-link active">Home</a>
-                            <a href="property.html" class="nav-link">Property</a>
-                            <a href="experiences.html" class="nav-link">Experiences</a>
-                            <a href="contact.html" class="nav-link">Contact Us</a>
+                    <!-- Navbar links -->
+                    <div class="collapse navbar-collapse" id="navbarcontents">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link active navbar-headings">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="property.html" class="nav-link navbar-headings">Property</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="experiences.html" class="nav-link navbar-headings">Experiences</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link navbar-headings">Contact Us</a>
+                            </li>
+                        </ul>
 
+                        <!-- Reserve button -->
+                        <div class="d-flex">
+                            <a href="reservation.html" target="_blank" class="btn reserve-btn">Reserve Now</a>
                         </div>
-                     </div>
+                    </div>
+                </div>
+            </nav>
 
-                 </nav>
             </div>
          </section> 
         <!-- Section one ends here -->
 
-         <!-- Section two starts here -->
+        
+            <!-- Section two starts here -->
+     <section class="image-video">
+        <div class="slideshow">
+            <img src="images/villa.avif" alt="villa">
+            <img src="images/villa2.avif" alt="villa2">
+            <img src="images/view.jpg" alt="view">
+            <img src="images/pool.jpg" alt="pool">
+            <img src="images/beach1.webp" alt="beach1">
+            <img src="images/pool3.jpg" alt="pool3">
+            <img src="images/pool2.jpg" alt="pool2">
+            <img src="images/gate.jpg" alt="gate">
+        </div>
+     </section>
+     <!-- Section two ends here -->
+
+     <!-- Section three starts here -->
+         <div class="col-lg-12" id="myquote"> <br> <br>
+            <p id="quote">"Luxury is attention to detail,originality,exclusivity and above all quality."</p>
+            <p id="angelo">-Angelo Bonati</p>
+         </div>
+         <!-- Section three ends here -->
+
+
+         <!-- Section four starts here -->
 
          <!-- Carousel-It is used to move/slide different contents on the screen from one side to the other. A carousel has three main sections i.e 1.inner/wrapper(Holds the contents to be displayed) 2.controls-(we have the left control and the right control) 3.indicators(indicate which content is currently visible on the screen) -->
 
@@ -107,14 +263,52 @@
             </div>
 
             <div class="col-lg-6 text-center text-light" id="mycolumn"> <br> <br> <br> <br>
-                <h2 class="text-uppercase">Welcome to Treasured Homes Getaways</h2> <br>
+                <h2 class="text-uppercase" id="welcome">Welcome to Treasured Homes Getaways</h2> <br>
 
                 <h4> Elegant, fully furnished homes designed for comfort. Curated with refined comfort, privacy and unforgettable stays in prime locations. Perfect for relaxation, business travel and special escapes. </h4>
+                <p>Click anywhere to enable soft background music.</p>
+
+            <!-- Audio -->
+            <audio id="bg-music" autoplay loop muted>
+            <source src="music/music.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Floating sound button -->
+            <button id="sound-btn">🔊</button>
+
+            <!-- Your Bootstrap JS -->
+            <script src="dist/js/bootstrap.js"></script>
+
+            <script>
+            const music = document.getElementById("bg-music");
+            const soundBtn = document.getElementById("sound-btn");
+
+            // First click anywhere: unmute music
+            document.addEventListener("click", () => {
+                music.muted = false;
+                music.volume = 0.3; // soft music
+                music.play().catch(err => console.log(err));
+
+                // Show floating button
+                soundBtn.style.display = "block";
+            }, { once: true });
+
+            // Toggle mute/unmute with button
+            soundBtn.addEventListener("click", () => {
+                if (music.muted) {
+                music.muted = false;
+                soundBtn.textContent = "🔊";
+                } else {
+                music.muted = true;
+                soundBtn.textContent = "🔇";
+                }
+                });
+                </script>
             </div>
          </section> <br> <hr> <br>
-        <!-- Section two ends here -->
+        <!-- Section four ends here -->
 
-        <!-- Section three starts here -->
+        <!-- Section five starts here -->
 
         <h1 class="text-center" id="gallery">Gallery</h1> <br>
           <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" id="carouselindicator">
@@ -156,20 +350,20 @@
           </div> <br> <hr> <br>
 
 
-        <!-- Section three ends here -->
+        <!-- Section five ends here -->
 
-        <!-- Section four starts here -->
+        <!-- Section six starts here -->
           <div id="myamenities">
-            <h1 class="text-center text-light">Amenities</h1> <br>
             <section class="row">
-                <div class="col-lg-6 text-light">
-                    <img src="images/wifi.png" alt="wifi"> <b>Free wifi</b> <br>
+                <div class="col-lg-6 text-light" id="column-one">
+                    <h1 id="heading-one">A modern architecture that meets the finest exterior and interior luxurious designs</h1>
+                </div>
+
+                <div class="col-lg-6 text-light" id="column-two">
+                    <h1 id="heading-two">Amenities</h1>
                     <img src="images/pets.png" alt="pets"> <b>Pets Allowed</b> <br>
                     <img src="images/poollogo.png" alt="pool logo"> <b>Outdoor Pool</b> <br>
                     <img src="images/beach.png" alt="beach"> <b>Beach</b> <br>
-                </div>
-
-                <div class="col-lg-6 text-light">
                     <img src="images/bar.png" alt="bar"> <b>Bar</b> <br>
                     <img src="images/roomservice.png" alt="room service"> <b>Room Service</b> <br>
                     <img src="images/airportshuttle.png" alt="airport shuttle"> <b>Airport Shuttle </b><br>
@@ -177,9 +371,9 @@
             </section>       
           </div> <br> <hr> <br>
 
-        <!-- Section four ends here -->
+        <!-- Section six ends here -->
 
-        <!-- Section five starts here -->
+        <!-- Section seven starts here -->
           <div class="text-center text-dark" id="funactivities">
             <h1>Fun Activities</h1>
           </div> <br>
@@ -204,9 +398,9 @@
           </div>
           </section> <br> <hr> <br>
                   
-        <!-- Section five ends here -->
+        <!-- Section six ends here -->
 
-        <!-- Section six starts here -->
+        <!-- Section seven starts here -->
 
          <section class="row" id="footer">
 
@@ -244,12 +438,12 @@
 
             </div>
          </section>
-        <!-- Section six ends here -->
+        <!-- Section seven ends here -->
 
-        <!-- Section seven starts here  -->
+        <!-- Section eight starts here  -->
             <footer class="text-center text-white bg-dark p-2"><b>Developed by Jeremiah.© 2026. All rights reserved</b></footer>
 
-        <!-- Section seven ends here -->      
+        <!-- Section eight ends here -->      
     </body>
 </html>
 
